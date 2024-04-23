@@ -1,7 +1,20 @@
 from rest_framework import serializers
-from .models import prestamoLibro
+from .models import Libro, PrestamoLibro, Prestatario
 
-class librarySerializer (serializers.ModelSerializer):
+class PrestatarioSerializer(serializers.ModelSerializer):
     class Meta:
-        model = prestamoLibro
+        model = Prestatario
+        fields = '__all__'
+
+class LibroSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Libro
+        fields = '__all__'
+
+class PrestamoLibroSerializer(serializers.ModelSerializer):
+    book = LibroSerializer()
+    user = PrestatarioSerializer()
+
+    class Meta:
+        model = PrestamoLibro
         fields = '__all__'

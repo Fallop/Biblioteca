@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
 
 export function LoanBookCard({ loanBook }) {
@@ -13,8 +14,8 @@ export function LoanBookCard({ loanBook }) {
       <h1 className="text-white font-bold uppercase rounded-lg">
         {loanBook.name}
       </h1>
-      <p className="text-slate-400">{loanBook.date}</p>
-      <p className="text-slate-400">{loanBook.dateReturn}</p>
+      <p className="text-slate-400"> Prestado: {loanBook.date}</p>
+      <p className="text-slate-400"> Regreso: {loanBook.dateReturn}</p>
     </div>
   );
 }

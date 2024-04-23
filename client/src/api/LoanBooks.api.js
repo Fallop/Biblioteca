@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const loanBooksApi = axios.create({
-    baseURL: `http://localhost:8000/prestamolibros/api/v1/prestamolibros`,
+    baseURL: `http://localhost:8000/biblioteca/api/v1/prestamolibros`,
   });
 
 export const getAllLoanBooks = () => loanBooksApi.get('/')

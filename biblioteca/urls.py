@@ -5,6 +5,8 @@ from biblioteca import views
 
 router = routers.DefaultRouter()
 router.register(r'prestamolibros', views.LoanBookView, 'prestamolibros')
+router.register(r'libros', views.BookView, 'libros')
+router.register(r'prestatarios', views.BorrowerView, 'prestatarios')
 
 urlpatterns = [
     path("api/v1/", include(router.urls)),
