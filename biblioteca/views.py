@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework import viewsets
 from .serializer import LibroSerializer, PrestamoLibroSerializer, PrestatarioSerializer
 from .models import Libro, PrestamoLibro, Prestatario
@@ -15,3 +14,5 @@ class BookView(viewsets.ModelViewSet):
 class BorrowerView(viewsets.ModelViewSet):
     serializer_class = PrestatarioSerializer 
     queryset = Prestatario.objects.all()
+
+    

@@ -1,5 +1,5 @@
+import { BorrowerList } from "../components/BorrowerList";
+
 export function BorrowerPage() {
-  return (
-    <div>BorrowerPage</div>
-  )
+  return  <BorrowerList/>;
 }

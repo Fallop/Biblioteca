@@ -1,5 +1,5 @@
+import { BookList } from "../components/BookList";
+
 export function BooksPage() {
-  return (
-    <div>BooksPage</div>
-  )
+  return  <BookList/>;
 }

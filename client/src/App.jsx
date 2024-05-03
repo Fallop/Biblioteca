@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { LibraryPage } from "./pages/LibraryPage";
 import { LoanBooksPage } from "./pages/LoanBooksPage"
 import { LoanBooksFormPage } from "./pages/LoanBooksFormPage";
 import { BooksPage } from "./pages/BooksPage";
@@ -15,7 +16,7 @@ function App() {
         <Navigation/>
 
         <Routes>
-          <Route path="/" element={<Navigate to="biblioteca" />} />
+          <Route path="/" element={<LibraryPage />} />
           <Route path="/prestamolibros" element={<LoanBooksPage />} />
           <Route path="/prestamolibros-create" element={<LoanBooksFormPage />} />
           <Route path="/prestamolibros/:id" element={<LoanBooksFormPage />} />
