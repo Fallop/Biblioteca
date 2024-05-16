@@ -14,6 +14,10 @@ export function BookCard({ book }) {
       <h1 className="text-white font-bold uppercase rounded-lg">
         {book.title}
       </h1>
+      <div className="flex justify-end text-slate-400">
+        <p>{book.autorName},</p>
+        <p className="ml-2">{book.editorialName}</p>
+      </div>
     </div>
   );
 }

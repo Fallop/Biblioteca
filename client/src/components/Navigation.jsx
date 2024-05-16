@@ -6,15 +6,9 @@ export function Navigation() {
         <Link to="/">
             <h1 className="font-bold text-3xl mb-4">App Biblioteca</h1>
         </Link>
-        <button className="bg-indigo-500 p-3 rounded-lg"> 
-          <Link to="libros"> Libros </Link>
-        </button>
-        <button className="bg-indigo-500 p-3 rounded-lg"> 
-          <Link to="prestatarios"> Prestatarios </Link>
-        </button>
-        <button className="bg-indigo-500 p-3 rounded-lg"> 
-          <Link to="prestamolibros"> Prestamo Libros </Link>
-        </button>
+        <Link to="libros" className="bg-indigo-500 p-3 rounded-lg inline-block px-20"> Libros </Link>
+        <Link to="prestatarios" className="bg-indigo-500 p-3 rounded-lg inline-block px-20"> Prestatarios </Link>
+        <Link to="prestamolibros" className="bg-indigo-500 p-3 rounded-lg inline-block px-20"> Prestamo Libros </Link>
     </div>
   )
 }

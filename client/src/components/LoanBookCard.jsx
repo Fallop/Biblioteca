@@ -14,8 +14,10 @@ export function LoanBookCard({ loanBook }) {
       <h1 className="text-white font-bold uppercase rounded-lg">
         {loanBook.book.title} - {loanBook.user.name}
       </h1>
-      <p className="text-slate-400"> Prestado: {loanBook.date}</p>
-      <p className="text-slate-400"> Regreso: {loanBook.dateReturn}</p>
+      <div className="flex flex-col items-end text-slate-400">
+        <p className="text-slate-400"> Prestado: {loanBook.date}</p>
+        <p className="text-slate-400"> Regreso: {loanBook.dateReturn}</p>
+      </div>
     </div>
   );
 }
