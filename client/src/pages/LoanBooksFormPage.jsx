@@ -25,31 +25,18 @@ export function LoanBooksFormPage() {
   const [users, setUsers] = useState([]);
 
   const onSubmit = handleSubmit(async (data) => {
-    try {
-
-      if (params.id) {
-        await updateLoanBook(params.id, data);
-        toast.success("Prestamo Actualizado", {
-          position: "bottom-right",
-          style: {
-            background: "#101010",
-            color: "#fff",
-          },
-        });
-      } else {
-        await createLoanBook(data);
-        toast.success("Nuevo Prestamo Añadido", {
-          position: "bottom-right",
-          style: {
-            background: "#101010",
-            color: "#fff",
-          },
-        });
-      }
-      navigate("/prestamolibros");
-    } catch (error) {
-      console.error(error);
-      toast.error("Error al guardar el prestamo", {
+    if (params.id) {
+      await updateLoanBook(params.id, data);
+      toast.success("Prestamo Actualizado", {
+        position: "bottom-right",
+        style: {
+          background: "#101010",
+          color: "#fff",
+        },
+      });
+    } else {
+      await createLoanBook(data);
+      toast.success("Nuevo Prestamo Añadido", {
         position: "bottom-right",
         style: {
           background: "#101010",
@@ -57,14 +44,16 @@ export function LoanBooksFormPage() {
         },
       });
     }
+
+    navigate("/prestamolibros");
   });
 
   useEffect(() => {
     async function loadLoanBook() {
       if (params.id) {
         const { data } = await getLoanBook(params.id);
-        setValue("book", data.book.id);
-        setValue("user", data.user.id);
+        setValue("book", data.book);
+        setValue("user", data.user);
         setValue("date", data.date);
         setValue("dateReturn", data.dateReturn);
       }
@@ -91,9 +80,8 @@ export function LoanBooksFormPage() {
           {...register("book", { required: true })}
           className="bg-zinc-700 p-3 rounded-lg block w-full my-1"
         >
-          <option value="">Seleccione un libro</option>
           {books.map((book) => (
-            <option key={book.id} value={book.id}>
+            <option key={book.id} value={book}>
               {book.title}
             </option>
           ))}
@@ -110,9 +98,8 @@ export function LoanBooksFormPage() {
           {...register("user", { required: true })}
           className="bg-zinc-700 p-3 rounded-lg block w-full my-1"
         >
-          <option value="">Seleccione un usuario</option>
           {users.map((user) => (
-            <option key={user.id} value={user.id}>
+            <option key={user.id} value={user}>
               {user.name}
             </option>
           ))}
