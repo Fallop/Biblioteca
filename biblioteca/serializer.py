@@ -12,8 +12,10 @@ class LibroSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PrestamoLibroSerializer(serializers.ModelSerializer):
-    book = LibroSerializer()
-    user = PrestatarioSerializer()
+    book = serializers.PrimaryKeyRelatedField(queryset=Libro.objects.all())
+    user = serializers.PrimaryKeyRelatedField(queryset=Prestatario.objects.all())
+    book_details = LibroSerializer(source='book', read_only=True)
+    user_details = PrestatarioSerializer(source='user', read_only=True)
 
     class Meta:
         model = PrestamoLibro
