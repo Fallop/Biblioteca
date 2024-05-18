@@ -84,7 +84,7 @@ export function BorrowerFormPage() {
         {errors.direction && <span>This field is required</span>}
 
         <button className="bg-indigo-500 p-3 rounded-lg block w-full mt-3">
-          Save
+          Guardar
         </button>
       </form>
 
@@ -107,7 +107,7 @@ export function BorrowerFormPage() {
               }
             }}
           >
-            delete
+            Eliminar
           </button>
         </div>
       )}
